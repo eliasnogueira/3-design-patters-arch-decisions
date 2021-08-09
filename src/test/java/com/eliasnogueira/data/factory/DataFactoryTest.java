@@ -23,7 +23,6 @@
  */
 package com.eliasnogueira.data.factory;
 
-import com.eliasnogueira.factory.browser.CreditCardDataFactory;
 import com.eliasnogueira.model.CreditCard;
 import org.junit.jupiter.api.Test;
 
