@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.eliasnogueira.factory.browser;
+package com.eliasnogueira.data.factory;
 
 import com.eliasnogueira.model.CreditCard;
 import com.eliasnogueira.model.CreditCardBuilder;
