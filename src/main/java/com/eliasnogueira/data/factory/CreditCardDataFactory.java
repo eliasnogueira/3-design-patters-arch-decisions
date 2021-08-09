@@ -27,6 +27,8 @@ import com.eliasnogueira.model.CreditCard;
 import com.eliasnogueira.model.CreditCardBuilder;
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,6 +36,7 @@ import java.time.format.DateTimeFormatter;
 public class CreditCardDataFactory {
 
     private final Faker faker;
+    private static final Logger log = LogManager.getLogger(CreditCardDataFactory.class);
 
     public CreditCardDataFactory() {
         faker = new Faker();
@@ -44,7 +47,10 @@ public class CreditCardDataFactory {
      * @return valid credit card object
      */
     public CreditCard validCreditCard() {
-        return validBuilder().createCreditCard();
+        var valid = validBuilder().createCreditCard();
+        log.info(valid);
+
+        return valid;
     }
 
     /**
@@ -52,7 +58,10 @@ public class CreditCardDataFactory {
      * @return invalid credit card object with an invalid credit card number
      */
     public CreditCard invalidCreditCardNumber() {
-        return validBuilder().number(faker.number().digits(10)).createCreditCard();
+        var invalid = validBuilder().number(faker.number().digits(10)).createCreditCard();
+        log.info(invalid);
+
+        return invalid;
     }
 
     /**
@@ -60,7 +69,10 @@ public class CreditCardDataFactory {
      * @return month expiration date between 13 and 20
      */
     public CreditCard invalidMonth() {
-        return validBuilder().expirationDateMonth(String.valueOf(faker.number().numberBetween(13, 20))).createCreditCard();
+        var invalid = validBuilder().expirationDateMonth(String.valueOf(faker.number().numberBetween(13, 20))).createCreditCard();
+        log.info(invalid);
+
+        return invalid;
     }
 
     /**
@@ -71,7 +83,10 @@ public class CreditCardDataFactory {
         LocalDate yearIncremented = LocalDate.now().plusYears(faker.number().numberBetween(4, 10));
         var year = yearIncremented.format(DateTimeFormatter.ofPattern("yy"));
 
-        return validBuilder().expirationDateYear(year).createCreditCard();
+        var invalid = validBuilder().expirationDateYear(year).createCreditCard();
+        log.info(invalid);
+
+        return invalid;
     }
 
     /**
@@ -79,7 +94,10 @@ public class CreditCardDataFactory {
      * @return CCV with only characteres (no numbers)
      */
     public CreditCard invalidCcv() {
-        return validBuilder().ccv(RandomStringUtils.randomAlphabetic(3)).createCreditCard();
+        var invalid = validBuilder().ccv(RandomStringUtils.randomAlphabetic(3)).createCreditCard();
+        log.info(invalid);
+
+        return invalid;
     }
 
     /**
