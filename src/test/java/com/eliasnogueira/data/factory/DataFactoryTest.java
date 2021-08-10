@@ -42,6 +42,5 @@ class DataFactoryTest {
             soft.assertThat(creditCard.getExpirationDateMonth()).isNotEmpty();
             soft.assertThat(creditCard.getExpirationDateYear()).isNotEmpty();
         });
-
     }
 }
