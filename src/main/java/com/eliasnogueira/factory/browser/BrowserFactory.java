@@ -40,6 +40,8 @@ import org.openqa.selenium.remote.AbstractDriverOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
+import static com.eliasnogueira.config.ConfigurationManager.configuration;
+
 public enum BrowserFactory {
 
     CHROME {
@@ -56,6 +58,7 @@ public enum BrowserFactory {
             chromeOptions.addArguments(START_MAXIMIZED);
             chromeOptions.addArguments("--disable-infobars");
             chromeOptions.addArguments("--disable-notifications");
+            chromeOptions.setHeadless(configuration().headless());
 
             return chromeOptions;
         }
@@ -71,6 +74,7 @@ public enum BrowserFactory {
         public FirefoxOptions getOptions() {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments(START_MAXIMIZED);
+            firefoxOptions.setHeadless(configuration().headless());
 
             return firefoxOptions;
         }
