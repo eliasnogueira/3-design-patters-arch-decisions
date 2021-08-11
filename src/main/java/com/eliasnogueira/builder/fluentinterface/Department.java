@@ -23,6 +23,6 @@
  */
 package com.eliasnogueira.builder.fluentinterface;
 
-public enum Departament {
+public enum Department {
     ALL_DEPARTMENTS, ARTS_CRAFTS, AUTOMOTIVE, BOOKS, COMPUTERS, SOFTWARE
 }

@@ -24,7 +24,7 @@
 package com.eliasnogueira.fluentinterface;
 
 import com.eliasnogueira.builder.fluentinterface.AmazonPage;
-import com.eliasnogueira.builder.fluentinterface.Departament;
+import com.eliasnogueira.builder.fluentinterface.Department;
 import org.junit.jupiter.api.Test;
 
 class FluentInterfaceTest {
@@ -38,6 +38,6 @@ class FluentInterfaceTest {
     @Test
     void searchOnComputers() {
         AmazonPage amazonPage = new AmazonPage();
-        amazonPage.selectDepartament(Departament.BOOKS).search("Effective Java");
+        amazonPage.selectDepartament(Department.BOOKS).search("Effective Java");
     }
 }

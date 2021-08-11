@@ -6,7 +6,7 @@
 
     <groupId>com.eliasnogueira</groupId>
     <artifactId>3-design-patters-arch-decisions</artifactId>
-    <version>1.5.1-SNAPSHOT</version>
+    <version>1.5.2-SNAPSHOT</version>
 
     <properties>
         <java.version>11</java.version>

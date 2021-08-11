@@ -25,7 +25,7 @@ package com.eliasnogueira.builder.fluentinterface;
 
 public class AmazonPage {
 
-    public AmazonPage selectDepartament(Departament departament) {
+    public AmazonPage selectDepartament(Department department) {
         // some magic here
         return this;
     }
