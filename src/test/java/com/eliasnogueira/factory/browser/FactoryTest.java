@@ -34,24 +34,26 @@ class FactoryTest {
 
     private WebDriver driver;
 
+    private static final String CHROME = "CHROME";
+    private static final String FIREFOX = "FIREFOX";
+
     @Test
     void chromeTest() {
-        driver = BrowserFactory.valueOf("CHROME").createDriver();
+        driver = BrowserFactory.valueOf(CHROME).createDriver();
         String browserName = ((RemoteWebDriver)driver).getCapabilities().getBrowserName();
 
-        assertThat(browserName).isEqualTo("chrome");
+        assertThat(browserName).isEqualToIgnoringCase(CHROME);
     }
 
     @Test
     void firefoxTest() {
-        driver = BrowserFactory.valueOf("FIREFOX").createDriver();
+        driver = BrowserFactory.valueOf(FIREFOX).createDriver();
         String browserName = ((RemoteWebDriver)driver).getCapabilities().getBrowserName();
-        assertThat(browserName).isEqualTo("firefox");
+        assertThat(browserName).isEqualToIgnoringCase(FIREFOX);
     }
 
     @AfterEach
     void closeBrowser() {
         driver.quit();
     }
-
 }
