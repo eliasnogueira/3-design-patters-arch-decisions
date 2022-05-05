@@ -38,6 +38,6 @@ class FluentInterfaceTest {
     @Test
     void searchOnComputers() {
         AmazonPage amazonPage = new AmazonPage();
-        amazonPage.selectDepartament(Department.BOOKS).search("Effective Java");
+        amazonPage.selectDepartment(Department.BOOKS).search("Effective Java");
     }
 }
