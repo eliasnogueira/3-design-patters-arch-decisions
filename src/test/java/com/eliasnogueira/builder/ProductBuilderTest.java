@@ -40,9 +40,9 @@ class ProductBuilderTest {
                 description("11-inch display").build();
 
         assertSoftly(soft -> {
-            soft.assertThat(product.getName()).isNullOrEmpty();
+            soft.assertThat(product.getName()).isNotNull();
             soft.assertThat(product.getPrice()).isNotNull();
-            soft.assertThat(product.getDescription()).isNullOrEmpty();
+            soft.assertThat(product.getDescription()).isNotNull();
         });
     }
 
