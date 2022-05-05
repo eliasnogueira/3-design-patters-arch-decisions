@@ -4,20 +4,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 05-05-2022
+
+### Changed
+- Updated the following libraries
+  - `allure.junit5` to `2.17.3`
+  - `allure` to `2.17.3`
+  - `assertj` to `3.22.0`
+  - `junit.jupiter` to `5.8.2`
+  - `selenium` to `4.1.4`
+  - `webdrivermanager` to `5.1.1`
+- Added browser name constants in the `FactoryTest`
+- Fix assertions in the `ProductBuilderTest`
+- Fix typo in `AmazonPage`
+
 ## [1.5.2] - 11-08-2021
 
 ### Changed
--  Solving typo in `Department class`
+- Solving typo in `Department class`
 
 ## [1.5.1] - 11-08-2021
 
 ### Changed
--  Added missing `@Test` annotation in the fluent interface test
+- Added missing `@Test` annotation in the fluent interface test
 
 ## [1.5.0] - 11-08-2021
 
 ### Added
--  Builder and Fluent interface examples
+- Builder and Fluent interface examples
 
 ## [1.4.0] - 10-08-2021
 
@@ -54,4 +68,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Basic project structure
 - Examples of the BaseTest Class, Factory (browser) and Data Factory
-
