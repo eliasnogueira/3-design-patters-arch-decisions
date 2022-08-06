@@ -33,6 +33,8 @@ public interface Configuration extends Config {
 
     Boolean headless();
 
+    String url();
+
     @Key("basic.auth.url")
     String basicAuthUrl();
 }
