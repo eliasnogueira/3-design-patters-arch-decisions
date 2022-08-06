@@ -28,19 +28,18 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import static com.eliasnogueira.data.changeless.BrowserData.CHROME;
+import static com.eliasnogueira.data.changeless.BrowserData.FIREFOX;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class FactoryTest {
 
     private WebDriver driver;
 
-    private static final String CHROME = "CHROME";
-    private static final String FIREFOX = "FIREFOX";
-
     @Test
     void chromeTest() {
         driver = BrowserFactory.valueOf(CHROME).createDriver();
-        String browserName = ((RemoteWebDriver)driver).getCapabilities().getBrowserName();
+        String browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
 
         assertThat(browserName).isEqualToIgnoringCase(CHROME);
     }
@@ -48,7 +47,7 @@ class FactoryTest {
     @Test
     void firefoxTest() {
         driver = BrowserFactory.valueOf(FIREFOX).createDriver();
-        String browserName = ((RemoteWebDriver)driver).getCapabilities().getBrowserName();
+        String browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
         assertThat(browserName).isEqualToIgnoringCase(FIREFOX);
     }
 

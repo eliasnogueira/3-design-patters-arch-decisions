@@ -17,9 +17,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import static com.eliasnogueira.data.changeless.GeneralData.INVALID_DATA;
+
 public class CreditCardCheck {
 
-    private static final String INVALID_DATA = "Invalid data";
     private CreditCard creditCard;
 
     public Boolean isValid(CreditCard creditCard) throws CreditCardException {

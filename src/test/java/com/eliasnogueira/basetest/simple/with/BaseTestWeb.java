@@ -37,7 +37,7 @@ public abstract class BaseTestWeb {
     static void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("http://eliasnogueira.com");
+        driver.get("https://eliasnogueira.com");
     }
 
     @AfterAll

@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 class FluentInterfaceTest {
 
     @Test
-    void searchInAllDepartaments() {
+    void searchInAllDepartments() {
         AmazonPage amazonPage = new AmazonPage();
         amazonPage.search("Kindle Fire");
     }

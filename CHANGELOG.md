@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 06-08-2022
+
+### Added
+- New classes related to the changeless data
+
+### Changes
+- Added the explanations about patterns and decisions in the readme file
+- Added new `url` configuration
+- Updated test in `FirstPageCheckTest`
+- Removal of Internet Explorer and Opera browser in `BrowserFactory`
+- Updated the following libraries
+  - `maven-surefire-plugin` to `3.0.0-M7`
+  - `maven-compiler-plugin` to `3.10.1`
+  - `junit.jupiter` to `5.9.0`
+  - `assertj` to `3.23.1`
+  - `selenium` to `4.3.0`
+  - `webdrivermanager` to `5.2.3`
+  - `log4j` to `2.18.0`
+  - `allure` to `2.18.1`
+  - `allure.junit5` to `2.18.1`
+
 ## [1.5.2] - 05-05-2022
 
 ### Changed

@@ -28,6 +28,7 @@ import com.eliasnogueira.model.CreditCard;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 
+import static com.eliasnogueira.data.changeless.GeneralData.INVALID_DATA;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class DataDrivenTest {
@@ -37,6 +38,6 @@ class DataDrivenTest {
     @ParameterizedTest(name = "''{0}''")
     @ArgumentsSource(CreditCardDataDriven.class)
     void invalidCreditCard(CreditCard creditCard) {
-        assertThatThrownBy(() -> creditCardCheck.isValid(creditCard)).hasMessage("Invalid data");
+        assertThatThrownBy(() -> creditCardCheck.isValid(creditCard)).hasMessage(INVALID_DATA);
     }
 }

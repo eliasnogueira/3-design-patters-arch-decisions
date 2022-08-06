@@ -32,10 +32,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.stream.Collectors;
-
-import static org.assertj.core.api.Assertions.*;
-import static org.assertj.core.api.SoftAssertions.*;
+import static com.eliasnogueira.data.changeless.AssertionData.TEST_AUTOMATION;
+import static java.util.stream.Collectors.toList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 class FirstPageCheckTest {
 
@@ -45,7 +45,7 @@ class FirstPageCheckTest {
     static void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("http://eliasnogueira.com");
+        driver.get("https://eliasnogueira.com");
     }
 
     @AfterAll
@@ -55,15 +55,12 @@ class FirstPageCheckTest {
 
     @Test
     void firstPageChecks() {
-        driver.findElement(By.linkText("Series")).click();
-        var texts = driver.findElements(By.cssSelector(".hestia-info > p"))
-                .stream().map(WebElement::getText).sorted(String::compareTo).collect(Collectors.toList());
+        var tags = driver.findElements(By.cssSelector("article > div.card > div.content > h6"))
+                .stream().map(WebElement::getText).sorted(String::compareTo).collect(toList());
 
-        assertThat(texts).hasSize(3);
         assertSoftly(soft -> {
-            soft.assertThat(texts.get(0)).isEqualTo("Be informed when a new post comes out");
-            soft.assertThat(texts.get(1)).isEqualTo("Have a look at the blog post series");
-            soft.assertThat(texts.get(2)).isEqualTo("Receive daily reading tips on your Telegram");
+            soft.assertThat(tags).hasSize(3);
+            soft.assertThat(tags).allSatisfy(s -> assertThat(s).contains(TEST_AUTOMATION));
         });
     }
 }
