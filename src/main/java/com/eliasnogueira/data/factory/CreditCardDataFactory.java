@@ -33,6 +33,10 @@ import org.apache.logging.log4j.Logger;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import static com.eliasnogueira.data.changeless.GeneralData.YEAR_DATE_PATTERN;
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
+
 public class CreditCardDataFactory {
 
     private final Faker faker;
@@ -44,6 +48,7 @@ public class CreditCardDataFactory {
 
     /**
      * Generate a valid credit card object with all correct information
+     *
      * @return valid credit card object
      */
     public CreditCard validCreditCard() {
@@ -55,6 +60,7 @@ public class CreditCardDataFactory {
 
     /**
      * Generate an invalid credit card object with an invalid credit card number
+     *
      * @return invalid credit card object with an invalid credit card number
      */
     public CreditCard invalidCreditCardNumber() {
@@ -66,10 +72,12 @@ public class CreditCardDataFactory {
 
     /**
      * Generate an invalid credit card object with an invalid month expiration date
+     *
      * @return month expiration date between 13 and 20
      */
     public CreditCard invalidMonth() {
-        var invalid = validBuilder().expirationDateMonth(String.valueOf(faker.number().numberBetween(13, 20))).createCreditCard();
+        var invalid = validBuilder().expirationDateMonth(
+                valueOf(faker.number().numberBetween(13, 20))).createCreditCard();
         log.info(invalid);
 
         return invalid;
@@ -77,11 +85,12 @@ public class CreditCardDataFactory {
 
     /**
      * Generate an invalid credit card object with an invalid year expiration date
+     *
      * @return four (4) to ten (10) years ahead
      */
     public CreditCard invalidYear() {
         LocalDate yearIncremented = LocalDate.now().plusYears(faker.number().numberBetween(4, 10));
-        var year = yearIncremented.format(DateTimeFormatter.ofPattern("yy"));
+        var year = yearIncremented.format(DateTimeFormatter.ofPattern(YEAR_DATE_PATTERN));
 
         var invalid = validBuilder().expirationDateYear(year).createCreditCard();
         log.info(invalid);
@@ -91,6 +100,7 @@ public class CreditCardDataFactory {
 
     /**
      * Generate an invalid credit card object with an invalid CCV
+     *
      * @return CCV with only characteres (no numbers)
      */
     public CreditCard invalidCcv() {
@@ -102,16 +112,18 @@ public class CreditCardDataFactory {
 
     /**
      * Generates a valid builder object to be used by all the data generation cases
+     *
      * @return valid credit card information as the builder object
      */
     private CreditCardBuilder validBuilder() {
         var creditCardNumber = faker.business().creditCardNumber().replace("-", "");
 
-        return new CreditCardBuilder().owner(faker.name().name()).
-                number(creditCardNumber).
-                ccv(faker.number().digits(3)).
-                expirationDateMonth(validRandomExpirationDateMonth()).
-                expirationDateYear(validRandomExpirationDateYear());
+        return new CreditCardBuilder()
+                .owner(faker.name().name())
+                .number(creditCardNumber)
+                .ccv(faker.number().digits(3))
+                .expirationDateMonth(validRandomExpirationDateMonth())
+                .expirationDateYear(validRandomExpirationDateYear());
     }
 
     /**
@@ -124,7 +136,7 @@ public class CreditCardDataFactory {
      */
     private String validRandomExpirationDateMonth() {
         int month = faker.number().numberBetween(1, 12);
-        return String.format("%02d", month);
+        return format("%02d", month);
     }
 
     /**
@@ -134,6 +146,6 @@ public class CreditCardDataFactory {
      */
     private String validRandomExpirationDateYear() {
         LocalDate yearIncremented = LocalDate.now().plusYears(faker.number().numberBetween(1, 3));
-        return yearIncremented.format(DateTimeFormatter.ofPattern("yy"));
+        return yearIncremented.format(DateTimeFormatter.ofPattern(YEAR_DATE_PATTERN));
     }
 }
