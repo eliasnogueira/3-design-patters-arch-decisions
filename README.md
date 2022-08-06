@@ -6,6 +6,24 @@ This repo is part of a presentation with the same name. You can find the followi
 * Slides: https://speakerdeck.com/eliasnogueira/3-design-patterns-and-architecture-decisions-you-must-use-in-your-project
 * Video: https://youtu.be/kqwPHdGn7sI?t=22438
 
+## TOC
+* [Patterns](#patterns)
+  * [Base Test class](#base-test-class)
+  * [Builder and Fluent Interface](#builder-and-fluent-interface)
+    * [Builder](#builder)
+    * [Fluent Interface](#fluent-interface)
+  * [Factory](#factory)
+* [Architectural Decisions](#architectural-decisions) 
+  * [Data Generation](#data-generation)
+    * [Fake data generation](#fake-data-generation)
+    * [Static data generation](#static-data-generation)
+    * [Changeless data](#changeless-data)
+    * [Data driven](https://github.com/eliasnogueira/3-design-patters-arch-decisions/tree/update-and-changelesss-data#data-driven)
+  * [Configuration Management](#configuration-management)
+  * [Log and Reports](#log-and-reports)
+    * [Exception and basic logs](#exception-and-basic-logs)
+    * [Test Reports](#test-reports)
+
 ## Patterns
 
 ### Base Test class
