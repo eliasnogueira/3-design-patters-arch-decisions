@@ -32,15 +32,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.AbstractDriverOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
 import static com.eliasnogueira.config.ConfigurationManager.configuration;
+import static com.eliasnogueira.data.changeless.BrowserData.DISABLE_INFOBARS;
+import static com.eliasnogueira.data.changeless.BrowserData.DISABLE_NOTIFICATIONS;
+import static com.eliasnogueira.data.changeless.BrowserData.START_MAXIMIZED;
 
 public enum BrowserFactory {
 
@@ -56,8 +55,8 @@ public enum BrowserFactory {
         public ChromeOptions getOptions() {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments(START_MAXIMIZED);
-            chromeOptions.addArguments("--disable-infobars");
-            chromeOptions.addArguments("--disable-notifications");
+            chromeOptions.addArguments(DISABLE_INFOBARS);
+            chromeOptions.addArguments(DISABLE_NOTIFICATIONS);
             chromeOptions.setHeadless(configuration().headless());
 
             return chromeOptions;
@@ -108,44 +107,8 @@ public enum BrowserFactory {
 
             return safariOptions;
         }
-    }, OPERA {
-        @Override
-        public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.OPERA).setup();
-
-            return new OperaDriver(getOptions());
-        }
-
-        @Override
-        public OperaOptions getOptions() {
-            OperaOptions operaOptions = new OperaOptions();
-            operaOptions.addArguments(START_MAXIMIZED);
-            operaOptions.addArguments("--disable-infobars");
-            operaOptions.addArguments("--disable-notifications");
-
-            return operaOptions;
-        }
-    }, IE {
-        @Override
-        public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.IEXPLORER).setup();
-
-            return new InternetExplorerDriver(getOptions());
-        }
-
-        @Override
-        public InternetExplorerOptions getOptions() {
-            InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
-            internetExplorerOptions.ignoreZoomSettings();
-            internetExplorerOptions.takeFullPageScreenshot();
-            internetExplorerOptions.introduceFlakinessByIgnoringSecurityDomains();
-
-            return internetExplorerOptions;
-        }
     };
 
-    private static final String START_MAXIMIZED = "--start-maximized";
-
     public abstract WebDriver createDriver();
-    public abstract AbstractDriverOptions<?> getOptions();
+    abstract AbstractDriverOptions<?> getOptions();
 }
