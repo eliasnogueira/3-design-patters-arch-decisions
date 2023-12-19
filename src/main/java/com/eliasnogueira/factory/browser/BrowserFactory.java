@@ -57,7 +57,8 @@ public enum BrowserFactory {
             chromeOptions.addArguments(START_MAXIMIZED);
             chromeOptions.addArguments(DISABLE_INFOBARS);
             chromeOptions.addArguments(DISABLE_NOTIFICATIONS);
-            chromeOptions.setHeadless(configuration().headless());
+
+            if(configuration().headless()) chromeOptions.addArguments("--headless=new");
 
             return chromeOptions;
         }
@@ -73,7 +74,7 @@ public enum BrowserFactory {
         public FirefoxOptions getOptions() {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments(START_MAXIMIZED);
-            firefoxOptions.setHeadless(configuration().headless());
+            if(configuration().headless()) firefoxOptions.addArguments("--headless=new");
 
             return firefoxOptions;
         }
