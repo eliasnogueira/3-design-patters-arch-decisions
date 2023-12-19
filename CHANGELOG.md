@@ -4,12 +4,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 17-12-2023
+
+## Changed
+- Project updated to Java 21
+- Updated the following libraries
+  - `maven-surefire-plugin - > 3.2.3`
+  - `maven-compiler-plugin -> 3.11.0`
+  - `junit.jupiter -> 5.10.1`
+  - `assertj -> 3.24.2`
+  - `selenium -> 4.16.1`
+  - `webdrivermanager -> 5.6.2`
+  - `log4j -> 2.22.0`
+  - `allure -> 2.25.0`
+  - `allure.junit5 -> 2.25.0`
+  - `allure-maven -> 2.12.0`
+  - `aspectj -> 1.9.21`
+  - `<owner -> 1.0.12`
+
+## Added
+- Added the following libraries to enforce security updates:
+  - `jackson-databind`
+  - `jcommander`
+
+## Removed
+- Removed `javafaker` in favor of `datafaker`
+
 ## [1.6.0] - 06-08-2022
 
 ### Added
 - New classes related to the changeless data
 
-### Changes
+### Changed
 - Added the explanations about patterns and decisions in the readme file
 - Added new `url` configuration
 - Updated test in `FirstPageCheckTest`
