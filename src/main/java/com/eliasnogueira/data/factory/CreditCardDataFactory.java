@@ -25,7 +25,7 @@ package com.eliasnogueira.data.factory;
 
 import com.eliasnogueira.model.CreditCard;
 import com.eliasnogueira.model.CreditCardBuilder;
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
