@@ -37,13 +37,12 @@ import static com.eliasnogueira.data.changeless.GeneralData.YEAR_DATE_PATTERN;
 import static java.lang.String.format;
 import static java.lang.String.valueOf;
 
-public class CreditCardDataFactory {
+public final class CreditCardDataFactory {
 
-    private final Faker faker;
-    private static final Logger log = LogManager.getLogger(CreditCardDataFactory.class);
+    private static final Faker FAKER = new Faker();
+    private static final Logger LOGGER = LogManager.getLogger(CreditCardDataFactory.class);
 
-    public CreditCardDataFactory() {
-        faker = new Faker();
+    private CreditCardDataFactory() {
     }
 
     /**
@@ -51,9 +50,9 @@ public class CreditCardDataFactory {
      *
      * @return valid credit card object
      */
-    public CreditCard validCreditCard() {
+    public static CreditCard validCreditCard() {
         var valid = validBuilder().createCreditCard();
-        log.info(valid);
+        LOGGER.info(valid);
 
         return valid;
     }
@@ -63,9 +62,9 @@ public class CreditCardDataFactory {
      *
      * @return invalid credit card object with an invalid credit card number
      */
-    public CreditCard invalidCreditCardNumber() {
-        var invalid = validBuilder().number(faker.number().digits(10)).createCreditCard();
-        log.info(invalid);
+    public static CreditCard invalidCreditCardNumber() {
+        var invalid = validBuilder().number(FAKER.number().digits(10)).createCreditCard();
+        LOGGER.info(invalid);
 
         return invalid;
     }
@@ -75,10 +74,10 @@ public class CreditCardDataFactory {
      *
      * @return month expiration date between 13 and 20
      */
-    public CreditCard invalidMonth() {
+    public static CreditCard invalidMonth() {
         var invalid = validBuilder().expirationDateMonth(
-                valueOf(faker.number().numberBetween(13, 20))).createCreditCard();
-        log.info(invalid);
+                valueOf(FAKER.number().numberBetween(13, 20))).createCreditCard();
+        LOGGER.info(invalid);
 
         return invalid;
     }
@@ -88,12 +87,12 @@ public class CreditCardDataFactory {
      *
      * @return four (4) to ten (10) years ahead
      */
-    public CreditCard invalidYear() {
-        LocalDate yearIncremented = LocalDate.now().plusYears(faker.number().numberBetween(4, 10));
+    public static CreditCard invalidYear() {
+        LocalDate yearIncremented = LocalDate.now().plusYears(FAKER.number().numberBetween(4, 10));
         var year = yearIncremented.format(DateTimeFormatter.ofPattern(YEAR_DATE_PATTERN));
 
         var invalid = validBuilder().expirationDateYear(year).createCreditCard();
-        log.info(invalid);
+        LOGGER.info(invalid);
 
         return invalid;
     }
@@ -103,9 +102,9 @@ public class CreditCardDataFactory {
      *
      * @return CCV with only characteres (no numbers)
      */
-    public CreditCard invalidCcv() {
+    public static CreditCard invalidCcv() {
         var invalid = validBuilder().ccv(RandomStringUtils.randomAlphabetic(3)).createCreditCard();
-        log.info(invalid);
+        LOGGER.info(invalid);
 
         return invalid;
     }
@@ -115,13 +114,13 @@ public class CreditCardDataFactory {
      *
      * @return valid credit card information as the builder object
      */
-    private CreditCardBuilder validBuilder() {
-        var creditCardNumber = faker.business().creditCardNumber().replace("-", "");
+    private static CreditCardBuilder validBuilder() {
+        var creditCardNumber = FAKER.business().creditCardNumber().replace("-", "");
 
         return new CreditCardBuilder()
-                .owner(faker.name().name())
+                .owner(FAKER.name().name())
                 .number(creditCardNumber)
-                .ccv(faker.number().digits(3))
+                .ccv(FAKER.number().digits(3))
                 .expirationDateMonth(validRandomExpirationDateMonth())
                 .expirationDateYear(validRandomExpirationDateYear());
     }
@@ -134,8 +133,8 @@ public class CreditCardDataFactory {
      *
      * @return a valid two digits month
      */
-    private String validRandomExpirationDateMonth() {
-        int month = faker.number().numberBetween(1, 12);
+    private static String validRandomExpirationDateMonth() {
+        int month = FAKER.number().numberBetween(1, 12);
         return format("%02d", month);
     }
 
@@ -144,8 +143,8 @@ public class CreditCardDataFactory {
      *
      * @return valid two digits year
      */
-    private String validRandomExpirationDateYear() {
-        LocalDate yearIncremented = LocalDate.now().plusYears(faker.number().numberBetween(1, 3));
+    private static String validRandomExpirationDateYear() {
+        LocalDate yearIncremented = LocalDate.now().plusYears(FAKER.number().numberBetween(1, 3));
         return yearIncremented.format(DateTimeFormatter.ofPattern(YEAR_DATE_PATTERN));
     }
 }

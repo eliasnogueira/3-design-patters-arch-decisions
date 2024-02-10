@@ -37,10 +37,10 @@ public class CreditCardDataDriven implements ArgumentsProvider {
     @Override
     public Stream<? extends Arguments> provideArguments(ExtensionContext extensionContext) {
         return Stream.of(
-                arguments(new CreditCardDataFactory().invalidCreditCardNumber()),
-                arguments(new CreditCardDataFactory().invalidCcv()),
-                arguments(new CreditCardDataFactory().invalidMonth()),
-                arguments(new CreditCardDataFactory().invalidYear())
+                arguments(CreditCardDataFactory.invalidCreditCardNumber()),
+                arguments(CreditCardDataFactory.invalidCcv()),
+                arguments(CreditCardDataFactory.invalidMonth()),
+                arguments(CreditCardDataFactory.invalidYear())
         );
     }
 }

@@ -4,9 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 10-02-2024
+
+### Added
+
+- GitHub action to build and test
+
+### Changes
+
+- `Product` class implemented as a record
+- `CreditCardDataFactory` has now only static methods
+- Updated the following libraries
+  - `maven-surefire-plugin.version - > 3.2.5`
+  - `maven-compiler-plugin.version -> 3.12.1`
+  - `junit.jupiter.version -> 5.10.2`
+  - `assertj.version -> 3.25.3`
+  - `selenium.version -> 4.17.0`
+  - `webdrivermanager.version -> 5.6.3`
+  - `datafaker.version -> 2.1.0`
+  - `jackson-databind.version>2.16.1`
+
 ## [2.0.0] - 17-12-2023
 
-## Changed
+### Changed
 - Project updated to Java 21
 - Updated the following libraries
   - `maven-surefire-plugin - > 3.2.3`
@@ -22,12 +42,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `aspectj -> 1.9.21`
   - `<owner -> 1.0.12`
 
-## Added
+### Added
 - Added the following libraries to enforce security updates:
   - `jackson-databind`
   - `jcommander`
 
-## Removed
+### Removed
 - Removed `javafaker` in favor of `datafaker`
 
 ## [1.6.0] - 06-08-2022
