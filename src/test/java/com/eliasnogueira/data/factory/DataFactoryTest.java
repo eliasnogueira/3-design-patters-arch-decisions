@@ -32,8 +32,7 @@ class DataFactoryTest {
 
     @Test
     void validCreditCard() {
-        CreditCardDataFactory creditCardDataFactory = new CreditCardDataFactory();
-        CreditCard creditCard = creditCardDataFactory.validCreditCard();
+        CreditCard creditCard = CreditCardDataFactory.validCreditCard();
 
         assertSoftly(soft -> {
             soft.assertThat(creditCard.getOwner()).isNotEmpty();

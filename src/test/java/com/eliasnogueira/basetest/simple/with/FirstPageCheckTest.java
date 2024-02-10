@@ -27,6 +27,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static com.eliasnogueira.data.changeless.AssertionData.TEST_AUTOMATION;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,12 +38,12 @@ class FirstPageCheckTest extends BaseTestWeb {
 
     @Test
     void firstPageChecks() {
-        var tags = driver.findElements(By.cssSelector("article > div.card > div.content > h6"))
+        var tags = driver.findElements(By.cssSelector("h4.title "))
                 .stream().map(WebElement::getText).sorted(String::compareTo).collect(toList());
 
         assertSoftly(soft -> {
             soft.assertThat(tags).hasSize(3);
-            soft.assertThat(tags).allSatisfy(s -> assertThat(s).contains(TEST_AUTOMATION));
+            soft.assertThat(tags).contains("Presentations", "GitHub Projects", "Article Series");
         });
     }
 }
