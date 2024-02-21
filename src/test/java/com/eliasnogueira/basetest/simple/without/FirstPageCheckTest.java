@@ -23,7 +23,6 @@
  */
 package com.eliasnogueira.basetest.simple.without;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -32,9 +31,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static com.eliasnogueira.data.changeless.AssertionData.TEST_AUTOMATION;
 import static java.util.stream.Collectors.toList;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 class FirstPageCheckTest {
@@ -43,7 +40,6 @@ class FirstPageCheckTest {
 
     @BeforeAll
     static void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://eliasnogueira.com");
     }

@@ -23,8 +23,6 @@
  */
 package com.eliasnogueira.factory.browser;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -37,17 +35,13 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
 import static com.eliasnogueira.config.ConfigurationManager.configuration;
-import static com.eliasnogueira.data.changeless.BrowserData.DISABLE_INFOBARS;
-import static com.eliasnogueira.data.changeless.BrowserData.DISABLE_NOTIFICATIONS;
-import static com.eliasnogueira.data.changeless.BrowserData.START_MAXIMIZED;
+import static com.eliasnogueira.data.changeless.BrowserData.*;
 
 public enum BrowserFactory {
 
     CHROME {
         @Override
         public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-
             return new ChromeDriver(getOptions());
         }
 
@@ -58,15 +52,13 @@ public enum BrowserFactory {
             chromeOptions.addArguments(DISABLE_INFOBARS);
             chromeOptions.addArguments(DISABLE_NOTIFICATIONS);
 
-            if(configuration().headless()) chromeOptions.addArguments("--headless=new");
+            if (configuration().headless()) chromeOptions.addArguments("--headless=new");
 
             return chromeOptions;
         }
     }, FIREFOX {
         @Override
         public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-
             return new FirefoxDriver(getOptions());
         }
 
@@ -74,15 +66,13 @@ public enum BrowserFactory {
         public FirefoxOptions getOptions() {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments(START_MAXIMIZED);
-            if(configuration().headless()) firefoxOptions.addArguments("--headless=new");
+            if (configuration().headless()) firefoxOptions.addArguments("--headless=new");
 
             return firefoxOptions;
         }
     }, EDGE {
         @Override
         public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.EDGE).setup();
-
             return new EdgeDriver(getOptions());
         }
 
@@ -96,8 +86,6 @@ public enum BrowserFactory {
     }, SAFARI {
         @Override
         public WebDriver createDriver() {
-            WebDriverManager.getInstance(DriverManagerType.SAFARI).setup();
-
             return new SafariDriver(getOptions());
         }
 
@@ -111,5 +99,6 @@ public enum BrowserFactory {
     };
 
     public abstract WebDriver createDriver();
+
     abstract AbstractDriverOptions<?> getOptions();
 }

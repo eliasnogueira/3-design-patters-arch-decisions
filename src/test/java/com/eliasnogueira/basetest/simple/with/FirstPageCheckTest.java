@@ -27,11 +27,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-import static com.eliasnogueira.data.changeless.AssertionData.TEST_AUTOMATION;
 import static java.util.stream.Collectors.toList;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 class FirstPageCheckTest extends BaseTestWeb {

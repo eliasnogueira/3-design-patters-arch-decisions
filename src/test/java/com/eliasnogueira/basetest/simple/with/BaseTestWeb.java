@@ -23,7 +23,6 @@
  */
 package com.eliasnogueira.basetest.simple.with;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +34,6 @@ public abstract class BaseTestWeb {
 
     @BeforeAll
     static void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://eliasnogueira.com");
     }
