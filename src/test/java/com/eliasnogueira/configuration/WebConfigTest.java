@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WebConfigTest {
 
     /*
-     * To see this test failing change either the basic.auth.user or basic.auth.password
+     * To see this test failing, change either the basic.auth.user or basic.auth.password
      */
     @Test
     void basicAuthTest() {
