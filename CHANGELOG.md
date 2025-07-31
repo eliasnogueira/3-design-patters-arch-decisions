@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 31-07-2025
+
+### Changed
+
+- Updated the project to use Java 24
+- Updated the following libraries
+    - `maven-surefire-plugin -> 3.5.3`
+    - `assertj -> 3.27.3`
+    - `selenium -> 4.34.0`
+    - `datafaker -> 2.4.4`
+    - `log4j -> 2.25.1`
+    - `allure -> 2.29.1`
+    - `allure.junit5 -> 2.29.1`
+    - `allure-maven -> 2.15.2`
+    - `aspectj -> 1.9.24
+    - `commons-lang3.version>3.18.0`
+- Fix typo in the `WebConfigTest` class and in the `REAMDE.md` file
+
 ## [2.1.1] - 27-10-2024
 
 ## Changed
@@ -84,7 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `allure.junit5 -> 2.25.0`
     - `allure-maven -> 2.12.0`
     - `aspectj -> 1.9.21`
-    - `<owner -> 1.0.12`
+    - ``owner -> 1.0.12`
 
 ### Added
 
