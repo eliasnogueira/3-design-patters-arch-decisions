@@ -31,11 +31,9 @@ Slides: https://speakerdeck.com/eliasnogueira/3-design-patterns-and-architecture
 
 ### Base Test class
 
-It is a simple approach to set up a shared initialization and cleanup in your tests. We commonly categorize it as a
-Testing pattern.
+It is a simple approach to set up a shared initialization and cleanup in your tests. We commonly categorize it as a Testing pattern.
 
-The problem we are trying to solve here is the reuse of common behaviors across test classes avoiding coding duplication
-and centralizing these actions at one point.
+The problem we are trying to solve here is the reuse of common behaviors across test classes, avoiding coding duplication, and centralizing these actions at one point.
 
 The application of a Base test class in OO programming languages is applied using inheritance.
 
@@ -48,16 +46,16 @@ Without this approach, we have code duplicated related to:
 With this approach, we have:
 
 * the smart use of inheritance
-* an easy way to add more test
+* an easy way to add more tests
 * flexible creation of test suites
 
 #### Examples
 
-without the usage of Base Test class
+##### Without the usage of the Base Test class
 
 * [FirstPageCheckTest](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/test/java/com/eliasnogueira/basetest/simple/without/FirstPageCheckTest.java)
 
-with the usage of Base Test class
+##### With the usage of the Base Test class
 
 * [BaseTestWeb](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/test/java/com/eliasnogueira/basetest/simple/with/BaseTestWeb.java)
 * [FirstPageCheckTest](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/test/java/com/eliasnogueira/basetest/simple/with/FirstPageCheckTest.java)
@@ -87,12 +85,12 @@ class BuilderExample {
 }
 ```
 
-The Build creation consists of a new class with the same fields, but with the following changes:
+The Builder creation consists of a new class with the same fields, but with the following changes:
 
 * set methods will return the builder class
 * a `build` method consisting of the main object creation and all the possible restrictions you might add.
 
-The usage of the Build pattern will bring clarity to the code:
+The usage of the Builder pattern will bring clarity to the code:
 
 ```java
 class BuilderExample {
@@ -116,8 +114,7 @@ class BuilderExample {
 
 #### Fluent Interface
 
-This pattern is based on the Build one where we try to provide a readable Fluent API over a specific domain. The domain
-can include more than one class.
+This pattern is based on Builder, where we try to provide a readable Fluent API over a specific domain. The domain can include more than one class.
 This might not have the `build()` method to create an object.
 
 ```java
@@ -144,10 +141,9 @@ class AmazonPage {
 ### Factory
 
 This creational pattern enables the creation of objects without exposing the internal logic.
-A good test example is the creation of different browser instances.
+A good example of this is the creation of different browser instances.
 
-The basic implementation is done by having specific classes that will create different objects, while the main class is
-responsible to understand the object type to create it.
+The basic implementation is done by having specific classes that will create different objects, while the main class is responsible for understanding the object type to create it.
 
 #### Examples
 
@@ -165,8 +161,7 @@ There are many ways to generate data. The most common are:
 
 #### Fake data generation
 
-Create an approach to generate non-sensitive data for your test without manually changing the test data in each
-execution.
+Create an approach to generate non-sensitive data for your test without manually changing the test data in each execution.
 There are a lot of tools to create this type of data.
 
 Example with [java-faker](https://github.com/DiUS/java-faker)
@@ -185,8 +180,7 @@ class JavaFakerExample {
 }
 ```
 
-The best way to get the advantage of the fake data generation is by combining it with the Factory pattern, where we
-commonly refer to it as Data Factory.
+The best way to get the advantage of the fake data generation is by combining it with the Factory pattern, where we commonly refer to it as the Data Factory.
 
 We can use a Fake Generation in a centralized data class that can create data in any condition.
 
@@ -212,9 +206,9 @@ class CreditCardDataFactory {
 
 #### Static data generation
 
-When the data cause different behaviors in your application.
+When the data causes different behaviors in your application.
 
-A Static approach can be achieved by implementing any data approach like:
+A Static approach can be achieved by implementing any data approach, like:
 
 * Class
 * CSV | JSON | TXT | YML
@@ -223,8 +217,8 @@ A Static approach can be achieved by implementing any data approach like:
 
 #### Changeless data
 
-It’s a set of common data used across the project consisting of a final class containing constants.
-The changeless data (constants) will be used in different classes, and the advantage is the single point of change.
+It’s a set of common data used across the project, consisting of a final class containing constants.
+The changeless data (constants) will be used in different classes, and the advantage is a single point of change.
 We can have multiple classes shaping the different data requirements.
 
 ##### Examples
@@ -233,7 +227,7 @@ We can have multiple classes shaping the different data requirements.
 * [BrowserData](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/main/java/com/eliasnogueira/data/changeless/BrowserData.java)
 * [GeneralDatta](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/main/java/com/eliasnogueira/data/changeless/GeneralData.java)
 
-#### Data driven
+#### Data-driven
 
 It is one of the Static data generation types.
 It consists of using different data in the same test, where the data changes, not the test.
@@ -256,7 +250,7 @@ Used to remove the maintenance of test data. Example:
 
 ### Configuration Management
 
-It provides a way to set different values for a running application without the necessity of re-compile or re-run it.
+It provides a way to set different values for a running application without the necessity of re-compiling or re-running it.
 Normally, this approach accepts dynamic values injection through environment variables or by modifying a configuration
 file.
 
@@ -269,8 +263,7 @@ file.
 
 ### Log and Reports
 
-We can generate logs and reports in different ways, but it’s important to have both in your test project whatever the
-tools you will choose for this.
+We can generate logs and reports in different ways, but it’s important to have both in your test project, whatever tools you choose for this.
 
 #### Exception and basic logs
 
@@ -282,7 +275,7 @@ These errors can be of:
 * assertion errors
 * timeout exceptions
 * locator exception
-* an exception on your architecture
+* an exception to your architecture
 
 You can also log basic info to know some action you are doing in the code.
 
@@ -294,8 +287,7 @@ You can also log basic info to know some action you are doing in the code.
 
 #### Test Reports
 
-Do not matter if you will generate the test report in any style (below): the most important thing is to have one to
-satisfy your requirements.
+It does not matter if you will generate the test report in any style (below): the most important thing is to have one to satisfy your requirements.
 
 We can have it reported as:
 
