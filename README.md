@@ -2,11 +2,10 @@
 
 Remember to give this project a ⭐
 
-This repo is part of a presentation with the same name. You can find the following resources:
+*A compact Java test‑architecture reference demonstrating reusable patterns and infrastructure choices that improve maintainability, clarity, and scalability.*
 
-*
-Slides: https://speakerdeck.com/eliasnogueira/3-design-patterns-and-architecture-decisions-you-must-use-in-your-project
-* Video: https://youtu.be/kqwPHdGn7sI?t=22438
+Based on the original presentation:
+🎤 [Slides](https://speakerdeck.com/eliasnogueira/3-design-patterns-and-architecture-decisions-you-must-use-in-your-project) • 🎥 [Video](https://youtu.be/kqwPHdGn7sI?t=22438)
 
 ## TOC
 
@@ -27,7 +26,7 @@ Slides: https://speakerdeck.com/eliasnogueira/3-design-patterns-and-architecture
         * [Exception and basic logs](#exception-and-basic-logs)
         * [Test Reports](#test-reports)
 
-## Patterns
+## 🧩 Patterns
 
 ### Base Test class
 
@@ -79,7 +78,7 @@ class BuilderExample {
         product.setDescription("10000 songs in your pocket!");
         product.setPrice(new BigDecimal("123.99"));
 
-        // approach using constructor (not so legible)
+        // approach using a constructor (not so legible)
         Product product = new Product("iPod", "10000 songs in your pocket!", new BigDecimal("123.99"));
     }
 }
@@ -150,7 +149,7 @@ The basic implementation is done by having specific classes that will create dif
 * [BrowserFactory](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/main/java/com/eliasnogueira/factory/browser/BrowserFactory.java)
 * [FactoryTest](https://github.com/eliasnogueira/3-design-patters-arch-decisions/blob/main/src/test/java/com/eliasnogueira/factory/browser/FactoryTest.java)
 
-## Architectural Decisions
+## 🏗️ Architectural Decisions
 
 ### Data Generation
 
