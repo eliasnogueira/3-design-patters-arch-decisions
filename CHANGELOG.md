@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 18-08-2026
+
+### Changed
+
+- Updated the project to use Java 25
+- Updated the following libraries
+    - `maven-surefire-plugin -> 3.5.6`
+    - `maven-compiler-plugin -> 3.15.0`
+    - `junit.jupiter -> 6.1.3`
+    - `assertj -> 3.27.7`
+    - `selenium -> 4.47.0`
+    - `datafaker -> 2.7.0`
+    - `log4j -> 2.26.1`
+    - `allure -> 2.35.4`
+    - `allure-maven -> 3.0.3`
+    - `aspectj -> 1.9.25.1`
+    - `commons-lang3 -> 3.20.0`
+- Replaced the relocated `allure-junit5` dependency with `allure-jupiter`
+- Added the JUnit Platform Launcher with the same version as JUnit Jupiter
+- Excluded Allure's transitive JUnit Platform Launcher to prevent version conflicts
+- Updated the page checks to validate the website's main heading instead of the old section links
+- Renamed the GitHub Actions workflow from `buil-test.yaml` to `build-test.yaml`
+- Updated the workflow actions to `checkout@v7`, `setup-java@v5`, and `cache@v6`
+- Updated the CI environment to use Temurin Java 25
+
 ## [2.2.0] - 31-07-2025
 
 ### Changed

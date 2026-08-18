@@ -45,5 +45,7 @@ class WebConfigTest {
         String expectedText = "Congratulations! You must have the proper credentials.";
 
         assertThat(actualText).isEqualTo(expectedText);
+
+        driver.quit();
     }
 }

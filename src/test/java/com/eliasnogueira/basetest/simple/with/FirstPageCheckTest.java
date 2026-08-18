@@ -25,21 +25,14 @@ package com.eliasnogueira.basetest.simple.with;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-import static java.util.stream.Collectors.toList;
-import static org.assertj.core.api.SoftAssertions.assertSoftly;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FirstPageCheckTest extends BaseTestWeb {
 
     @Test
-    void firstPageChecks() {
-        var tags = driver.findElements(By.cssSelector("h4.title "))
-                .stream().map(WebElement::getText).sorted(String::compareTo).collect(toList());
-
-        assertSoftly(soft -> {
-            soft.assertThat(tags).hasSize(3);
-            soft.assertThat(tags).contains("Presentations", "GitHub Projects", "Article Series");
-        });
+    void firstPageCheck() {
+        var title = driver.findElement(By.cssSelector("h1.wp-block-heading")).getText();
+        assertThat(title).isEqualTo("Building reliable software through Quality Engineering, Java, and GenAI.");
     }
 }
